@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe UNEFA - Capa 6 de Presentación</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <div class="documento">
+
+        <!-- ================= HOJA 1: PORTADA ================= -->
+        <section class="hoja portada">
+            <header class="logos-portada">
+                <img src="Logo-Unefa.png" alt="Logo UNEFA Izquierda" class="logo">
+                <img src="Logo-Unefa.png" alt="Logo UNEFA Derecha" class="logo">
+            </header>
+
+            <div class="encabezado-institucional">
+                <p>República Bolivariana de Venezuela</p>
+                <p>Ministerio del Poder Popular Para la Defensa</p>
+                <p>Universidad Nacional Experimental Politécnica de la Fuerza Armada Nacional</p>
+                <p>UNEFA - Núcleo Guárico</p>
+                <p>Ingeniería de Sistemas - VIII Semestre</p>
+            </div>
+
+            <div class="titulo-portada">
+                <h1>Capa 6 de Presentación</h1>
+            </div>
+
+            <footer class="firmas-portada">
+                <div class="firma-izquierda">
+                    <p><strong>Profesor:</strong></p>
+                    <p>Raúl Blanca</p>
+                </div>
+                <div class="firma-derecha">
+                    <p><strong>Bachiller:</strong></p>
+                    <p>Rafael Flores</p>
+                </div>
+            </footer>
+        </section>
+
+        <!-- ================= HOJA 2: CONTENIDO ================= -->
+        <section class="hoja contenido">
+            <h2>1. Sintaxis frente a Semántica</h2>
+
+            <p><strong>Capa 7 (Aplicación):</strong> Se encarga de la semántica (el significado del mensaje, la lógica de negocio y la intención del usuario, como un correo electrónico o una solicitud HTTP).</p>
+
+            <p><strong>Capa 6 (Presentación):</strong> Se encarga de la sintaxis y la estructura. No le importa qué significa el dato a nivel de negocio, sino cómo está representado en bytes para que pueda ser interpretado de forma idéntica por sistemas con arquitecturas de hardware diferentes (por ejemplo, diferencias entre Big-Endian y Little-Endian en el orden de los bytes de la memoria).</p>
+
+            <h2>2. Formatos de Transferencia y Serialización (ASN.1)</h2>
+
+            <p>Uno de los conceptos más técnicos de la capa 6 es la serialización y la representación abstracta de datos. Utiliza estándares como ASN.1 (Abstract Syntax Notation One) para definir estructuras de datos complejas de manera independiente de la máquina, junto con reglas de codificación como:</p>
+
+            <ul>
+                <li><strong>BER (Basic Encoding Rules):</strong> Especifica cómo se convierten los tipos de datos de ASN.1 en cadenas de octetos (bytes).</li>
+                <li><strong>PER (Packed Encoding Rules):</strong> Optimiza el tamaño del mensaje eliminando redundancias para reducir el uso de ancho de banda.</li>
+            </ul>
+
+            <h2>3. Transformación de Datos en Detalle</h2>
+
+            <p><strong>Traducción de códigos:</strong> Si un mainframe antiguo que usa codificación EBCDIC necesita comunicarse con un servidor moderno basado en ASCII o UTF-8, la capa de presentación realiza la conversión transparente de los caracteres.</p>
+
+            <p><strong>Compresión multimedia y de datos:</strong> Aplica algoritmos para reducir el peso de los flujos de datos. En imágenes o video, maneja estándares de compresión con pérdida o sin pérdida (como JPEG, PNG o H.264) antes de pasarlos a las capas inferiores para su segmentación y transporte.</p>
+
+            <p><strong>Cifrado y Seguridad:</strong> Aunque protocolos modernos como TLS operan a caballo entre la capa de transporte y la de aplicación, históricamente funciones como el cifrado simétrico/asimétrico y la gestión de certificados digitales se adscriben funcionalmente a las tareas de transformación y seguridad de la capa 6.</p>
+
+            <div class="numeracion-pagina">1</div>
+        </section>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+
+
+/* ============================================================
+   RESET Y CONFIGURACIÓN GLOBAL
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e0e0e0; /* Fondo gris claro de la "mesa de trabajo" */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   CONTENEDOR DEL DOCUMENTO
+   ============================================================ */
+.documento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Separación visual entre hojas */
+    width: 100%;
+}
+
+/* ============================================================
+   ESTILO BASE DE CADA HOJA (TAMAÑO CARTA)
+   ============================================================ */
+.hoja {
+    background-color: #ffffff;
+    width: 21.59cm;
+    min-height: 27.94cm;
+    /* Márgenes UNEFA: Izq 4cm, Sup 3cm, Der 3cm, Inf 3cm */
+    padding: 3cm 3cm 3cm 4cm;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================================
+   PORTADA (HOJA 1)
+   ============================================================ */
+.portada {
+    justify-content: space-between;
+    text-align: center;
+}
+
+.logos-portada {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.5cm;
+}
+
+.logo {
+    width: 40px;
+    height: auto;
+    object-fit: contain;
+}
+
+.encabezado-institucional {
+    margin-top: 0.5cm;
+    text-transform: uppercase;
+    font-size: 12pt;
+    line-height: 1.4;
+}
+
+.encabezado-institucional p {
+    margin-bottom: 2px;
+}
+
+.titulo-portada {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5cm 0;
+}
+
+.titulo-portada h1 {
+    font-size: 24pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.3;
+    letter-spacing: 1px;
+}
+
+.firmas-portada {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    font-size: 12pt;
+    line-height: 1.5;
+    padding-bottom: 0.5cm;
+}
+
+.firma-derecha {
+    text-align: right;
+}
+
+/* ============================================================
+   CONTENIDO (HOJAS SIGUIENTES)
+   ============================================================ */
+.contenido {
+    text-align: justify;
+}
+
+.contenido h2 {
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 0.8cm;
+    margin-bottom: 0.3cm;
+    text-transform: none;
+}
+
+.contenido h2:first-of-type {
+    margin-top: 0;
+}
+
+.contenido p {
+    text-indent: 1.25cm; /* Sangría UNEFA */
+    margin-bottom: 0.2cm;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* Las listas no llevan sangría de primera línea, pero sí alineación */
+.contenido ul {
+    margin-left: 1.25cm;
+    margin-bottom: 0.4cm;
+    text-align: justify;
+}
+
+.contenido li {
+    margin-bottom: 0.1cm;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* ============================================================
+   NUMERACIÓN DE PÁGINA (INFERIOR CENTRADA)
+   ============================================================ */
+.numeracion-pagina {
+    position: absolute;
+    bottom: 1cm; /* Ligeramente por encima del margen inferior de 3cm */
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12pt;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+}
+
+/* ============================================================
+   RESPONSIVE: AJUSTE PARA MÓVILES Y TABLETS
+   ============================================================ */
+@media screen and (max-width: 900px) {
+    body {
+        padding: 10px 0;
+    }
+
+    .documento {
+        gap: 15px;
+    }
+
+    /* En pantallas pequeñas la hoja se adapta al ancho disponible
+       manteniendo la proporcionalidad y los márgenes reducidos */
+    .hoja {
+        width: 100%;
+        max-width: 21.59cm;
+        min-height: auto;
+        /* Márgenes proporcionales reducidos para móvil */
+        padding: 1.5cm 1.2cm 1.5cm 1.5cm;
+    }
+
+    .titulo-portada h1 {
+        font-size: 18pt;
+    }
+
+    .encabezado-institucional {
+        font-size: 10pt;
+    }
+
+    .firmas-portada {
+        font-size: 11pt;
+    }
+
+    .numeracion-pagina {
+        position: static;
+        margin-top: 1.5cm;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hoja {
+        padding: 1cm 0.8cm 1cm 1cm;
+    }
+
+    .titulo-portada h1 {
+        font-size: 15pt;
+    }
+
+    .encabezado-institucional {
+        font-size: 9pt;
+    }
+
+    .firmas-portada {
+        font-size: 10pt;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .firma-izquierda,
+    .firma-derecha {
+        text-align: center;
+    }
+
+    body {
+        font-size: 11pt;
+    }
+}
